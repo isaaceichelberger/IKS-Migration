@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-demo # change me
+  namespace: isaac-namespace # change or remove me
+  labels:
+    app: springboot-demo # change me
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: springboot-demo # change me
+  template:
+    metadata:
+      labels:
+        app: springboot-demo # change me
+    spec:
+      containers:
+        - name: springboot-demo # change me
+          image: us.icr.io/isaac-namespace/base-springboot-demo # change me
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080 # change if your container has a different port exposed
+      imagePullSecrets:
+        - name: all-icr-io # if you are using a different container registry, change your secret name to the correct secret
