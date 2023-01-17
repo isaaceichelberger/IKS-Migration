@@ -76,7 +76,7 @@ This allows you to use `kubectl` commands with your IKS Cluster.
 If you are using a namespace, you can update your `kubectl` context to include the namespace in all future commands:
 
 ```
-kubectl config set-context --current --namespace isaac-namespace
+kubectl config set-context --current --namespace <namespace>
 ```
 
 Ensure your context is set:
